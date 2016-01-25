@@ -1,0 +1,30 @@
+{% load staticfiles %}
+{% load render_table from django_tables2 %}
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static "polls/screen.css" %}" />
+    </head>
+    <body>
+        <ul class="sortable" id="backLogList">
+            <h1>Backlog</h1>            
+        {% for qaItem in backLog %}
+            <div>
+                {{ qaItem.title }}
+            </div>
+         {% endfor %}
+        </ul>
+        <br>
+        <ul class="sortable" id="doneList">
+            <h1>Done</h1>
+            {% for qaItem in done %}
+                <div>{{ qaItem.title }}</div>
+            {% endfor %}
+        </ul>
+        <br >
+        <div id="messageBox">Status bar</div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.js"></script>
+    <script src="{% static "polls/js/index.js" %}"></script>
+</html>

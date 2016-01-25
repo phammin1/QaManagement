@@ -1,0 +1,34 @@
+{% load staticfiles %}
+{% load render_table from django_tables2 %}
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static "polls/screen.css" %}" />
+    </head>
+    <body>
+        <ul class="sortable" id="TopPriority">
+            <h1>Top priority</h1>            
+            {% render_table topPriority %}
+        </ul>
+
+        <ul class="sortable" id="BackLog">
+            <h1>Backlog</h1>            
+            {% render_table backLog %}
+        </ul>
+        
+        <ul class="sortable" id="Done">
+            <h1>Done</h1>
+            {% render_table done %}
+        </ul>
+
+        <ul class="sortable" id="Archive">
+            <h1>Archive</h1>
+            {% render_table noItems %}
+        </ul>
+
+        <div id="messageBox">Status bar</div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.js"></script>
+    <script src="{% static "polls/js/index.js" %}"></script>
+</html>
